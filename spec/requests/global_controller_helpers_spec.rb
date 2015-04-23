@@ -12,10 +12,6 @@ describe "Global controller helpers" do
     response.body.should include(@tracker.analytics_id)
   end
 
-  it "should populate the params with store id" do
-    request.params[:current_store_id].should == store.id
-  end
-
   it "should create a store-aware order" do
     controller.current_store.should == store
   end
@@ -39,7 +35,6 @@ describe "Global controller helpers" do
 
     context "when the current store default_currency is a currency" do
       let!(:store) { FactoryGirl.create :store, :default_currency => 'EUR' }
-
       it { should == 'EUR' }
     end
   end

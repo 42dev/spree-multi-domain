@@ -10,10 +10,11 @@ require 'rspec/rails'
 Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each {|f| require f }
 
 # Requires factories defined in spree_core
-require 'spree/core/testing_support/factories'
-require 'spree/core/testing_support/controller_requests'
-require 'spree/core/testing_support/authorization_helpers'
+require 'spree/testing_support/factories'
+require 'spree/testing_support/controller_requests'
+require 'spree/testing_support/authorization_helpers'
 require 'factories'
+require 'ffaker'
 
 RSpec.configure do |config|
   # == Mock Framework
@@ -34,5 +35,5 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include FactoryGirl::Syntax::Methods
-  config.include Spree::Core::TestingSupport::ControllerRequests
+  config.include Spree::TestingSupport::ControllerRequests
 end
